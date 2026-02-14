@@ -19,3 +19,9 @@ class Tarefa:
 
     def __str__(self):
         return f"[{self.id}] {self.titulo} - {self.responsavel} ({self.status})"
+    def listar_tarefas():
+        if not tarefas:
+            print("Nenhuma tarefa encontrada.")
+        for t in tarefas:
+            print(t)
+
