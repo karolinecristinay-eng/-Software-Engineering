@@ -9,6 +9,19 @@ class Matricula:
         return f"RA: {self.ra} - {self.nome} ({self.curso}) - {self.status}"
 
 
+alunos = []
+
+
+def registrar_matricula(ra, nome, curso):
+    if not nome.strip():
+        print("Erro: O nome é obrigatório.")
+        return
+
+    nova = Matricula(ra, nome, curso)
+    alunos.append(nova)
+    print("Matrícula registrada com sucesso!")
+
+
 class Tarefa:
     def __init__(self, id, titulo, responsavel, prioridade):
         self.id = id
@@ -36,7 +49,7 @@ def listar_tarefas():
 def atualizar_status(id_tarefa):
     for t in tarefas:
         if t.id == id_tarefa:
-            t.status = "Concluido"
+            t.status = "Concluído"
             print(f"Tarefa {id_tarefa} atualizada!")
             return
     print("Tarefa não encontrada.")
@@ -48,19 +61,26 @@ def menu():
         opcao = input("Escolha: ")
 
         if opcao == "1":
-            id = int(input("ID: "))
-            titulo = input("Título: ")
-            responsavel = input("Responsável: ")
-            prioridade = input("Prioridade: ")
-            tarefas.append(Tarefa(id, titulo, responsavel, prioridade))
-            print("Tarefa criada com sucesso!")
+            try:
+                id = int(input("ID: "))
+                titulo = input("Título: ")
+                responsavel = input("Responsável: ")
+                prioridade = input("Prioridade: ")
+
+                tarefas.append(Tarefa(id, titulo, responsavel, prioridade))
+                print("Tarefa criada com sucesso!")
+            except ValueError:
+                print("Erro: ID deve ser um número.")
 
         elif opcao == "2":
             listar_tarefas()
 
         elif opcao == "3":
-            id_tarefa = int(input("ID da tarefa a concluir: "))
-            atualizar_status(id_tarefa)
+            try:
+                id_tarefa = int(input("ID da tarefa a concluir: "))
+                atualizar_status(id_tarefa)
+            except ValueError:
+                print("Erro: ID deve ser um número.")
 
         elif opcao == "4":
             print("Saindo...")
