@@ -24,4 +24,12 @@ class Tarefa:
             print("Nenhuma tarefa encontrada.")
         for t in tarefas:
             print(t)
+    def atualizar_status(id_tarefa):
+        for t in tarefas:
+        if t.id == id_tarefa:
+        t.status = "Concluido"
+            print(f"Tarefa {id_tarefa} atualizada!")
+            return
+    print("Tarefa não encontrada.")
+
 
