@@ -1,10 +1,9 @@
-class Tarefa:
-    def __init__(self, id, titulo, responsavel, prioridade):
-        self.id = id
-        self.titulo = titulo
-        self.responsavel = responsavel
-        self.prioridade = prioridade
-        self.status = "Pendente"
+class Matricula:
+    def __init__(self, ra, nome, curso):
+        self.ra = ra
+        self.nome = nome
+        self.curso = curso
+        self.status = "Ativa"
 
     def __str__(self):
 
@@ -37,6 +36,7 @@ class Tarefa:
         opcao = input("Escolha: ")
         if opcao == "4": break
         
+
 
 
 
