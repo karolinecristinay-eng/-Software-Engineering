@@ -31,5 +31,12 @@ class Tarefa:
             print(f"Tarefa {id_tarefa} atualizada!")
             return
     print("Tarefa não encontrada.")
+    def menu():
+    while True:
+        print("\n1. Criar Tarefa\n2. Listar\n3. Concluir\n4. Sair")
+        opcao = input("Escolha: ")
+        if opcao == "4": break
+        
+
 
 
